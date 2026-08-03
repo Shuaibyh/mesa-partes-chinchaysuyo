@@ -1,0 +1,19 @@
+services:
+  mesa-partes:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Defina ADMIN_PASSWORD en el archivo .env}
+      SESSION_HOURS: ${SESSION_HOURS:-8}
+      MAX_FILE_MB: ${MAX_FILE_MB:-10}
+    volumes:
+      - mesa_partes_data:/app/data
+      - mesa_partes_uploads:/app/uploads
+
+volumes:
+  mesa_partes_data:
+  mesa_partes_uploads:

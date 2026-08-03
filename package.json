@@ -1,0 +1,29 @@
+{
+  "name": "mesa-partes-chinchaysuyo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mesa de Partes Virtual de la I. E. Chinchaysuyo",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch local-server/server.js",
+    "start": "node local-server/server.js",
+    "test": "node --test",
+    "cloudflare:dev": "wrangler dev",
+    "cloudflare:check": "wrangler deploy --dry-run",
+    "cloudflare:deploy": "wrangler deploy",
+    "cloudflare:types": "wrangler types",
+    "cloudflare:seed": "node tools/export-cloudflare-data.js",
+    "cloudflare:files": "node tools/upload-cloudflare-files.js",
+    "cloudflare:smoke": "node tools/smoke-cloudflare.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.118.0"
+  }
+}

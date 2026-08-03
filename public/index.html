@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mesa de Partes Virtual de la I. E. Chinchaysuyo">
+  <title>Mesa de Partes | I. E. Chinchaysuyo</title>
+  <link rel="icon" type="image/png" href="assets/insignia-chinchaysuyo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Inicio">
+      <img class="brand-logo" src="assets/insignia-chinchaysuyo.png" alt="Insignia de la I. E. Chinchaysuyo" width="389" height="514">
+      <span><strong>I. E. Chinchaysuyo</strong><small>Mesa de Partes Virtual</small></span>
+    </a>
+    <nav class="nav" aria-label="Navegación principal">
+      <button class="nav-link active" data-view="inicio">Inicio</button>
+      <button class="nav-link" data-view="registrar">Registrar trámite</button>
+      <button class="nav-link" data-view="consultar">Consultar estado</button>
+      <button class="admin-button" data-view="administracion" title="Panel administrativo">
+        <span aria-hidden="true">⚙</span> Administración
+      </button>
+    </nav>
+    <button class="menu-button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="view active" id="inicio">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">Atención digital</span>
+          <h1>Mesa de Partes Virtual</h1>
+          <p>Presenta documentos y realiza el seguimiento de tus trámites ante la I. E. Chinchaysuyo de forma simple y segura.</p>
+          <div class="hero-actions">
+            <button class="button primary" data-view="registrar">Registrar un trámite <span>→</span></button>
+            <button class="button secondary" data-view="consultar">Consultar expediente</button>
+          </div>
+          <div class="schedule"><span class="status-dot"></span> Recepción virtual disponible las 24 horas</div>
+        </div>
+        <div class="hero-visual">
+          <img class="hero-photo" src="assets/ie-chinchaysuyo-portada.jpg" alt="Comunidad educativa de la I. E. Chinchaysuyo" width="2000" height="1414" fetchpriority="high">
+        </div>
+      </div>
+
+      <div class="quick-section">
+        <div class="section-heading">
+          <div><span class="eyebrow">Servicios</span><h2>¿Qué deseas hacer?</h2></div>
+          <p>Gestiona tus documentos sin desplazarte al colegio.</p>
+        </div>
+        <div class="service-grid">
+          <button class="service-card" data-view="registrar">
+            <span class="service-icon blue" aria-hidden="true">＋</span>
+            <span><strong>Nuevo trámite</strong><small>Envía una solicitud o documento</small></span><b>→</b>
+          </button>
+          <button class="service-card" data-view="consultar">
+            <span class="service-icon green" aria-hidden="true">⌕</span>
+            <span><strong>Consultar estado</strong><small>Revisa el avance de tu expediente</small></span><b>→</b>
+          </button>
+          <button class="service-card" data-view="administracion">
+            <span class="service-icon gold" aria-hidden="true">▤</span>
+            <span><strong>Gestión interna</strong><small>Administra solicitudes recibidas</small></span><b>→</b>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view form-page" id="registrar">
+      <div class="page-header"><span class="eyebrow">Nuevo documento</span><h1>Registrar trámite</h1><p>Completa los datos solicitados. Los campos marcados con * son obligatorios.</p></div>
+      <form id="tramite-form" class="form-panel">
+        <div class="form-section">
+          <div class="form-section-title"><span>1</span><div><h2>Datos del solicitante</h2><p>Información de la persona que presenta el documento.</p></div></div>
+          <div class="form-grid">
+            <label class="field full"><span>Nombres y apellidos *</span><input name="nombre" required autocomplete="name" placeholder="Ej. María Quispe Huamán"></label>
+            <label class="field"><span>Tipo de documento *</span><select name="tipoDocumento" required><option value="DNI">DNI</option><option value="CE">Carné de extranjería</option><option value="RUC">RUC</option></select></label>
+            <label class="field"><span>Número de documento *</span><input name="documento" required inputmode="numeric" minlength="8" maxlength="11" placeholder="Ingrese el número"></label>
+            <label class="field"><span>Correo electrónico *</span><input name="correo" type="email" required autocomplete="email" placeholder="nombre@correo.com"></label>
+            <label class="field"><span>Teléfono *</span><input name="telefono" required inputmode="tel" minlength="9" maxlength="9" placeholder="999 999 999"></label>
+          </div>
+        </div>
+        <div class="form-section">
+          <div class="form-section-title"><span>2</span><div><h2>Información del trámite</h2><p>Describe el documento que deseas presentar.</p></div></div>
+          <div class="form-grid">
+            <label class="field"><span>Tipo de trámite *</span><select name="tipo" required><option value="">Selecciona una opción</option><option>Solicitud</option><option>Certificado de estudios</option><option>Constancia de matrícula</option><option>Traslado</option><option>Reclamo</option><option>Otro</option></select></label>
+            <label class="field"><span>Dependencia relacionada (referencial) *</span><select name="area" required><option value="">Selecciona una opción</option><option>Dirección</option><option>Secretaría</option><option>Administración</option><option>Coordinación académica</option><option>Tutoría</option><option>No estoy seguro</option></select><small>Todos los FUT llegan primero a Mesa de Partes, que determina el destino final.</small></label>
+            <label class="field full"><span>Asunto *</span><input name="asunto" required maxlength="120" placeholder="Resumen breve del trámite"></label>
+            <label class="field full"><span>Descripción *</span><textarea name="descripcion" required maxlength="600" rows="5" placeholder="Explica el motivo de tu solicitud"></textarea><small class="counter">0 / 600</small></label>
+            <label class="field full"><span>Documento adjunto</span><span class="file-drop"><input name="archivo" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"><b>Seleccionar archivo</b><small>PDF, Word o imagen. Máximo 10 MB.</small></span></label>
+          </div>
+        </div>
+        <label class="consent"><input type="checkbox" required><span>Acepto el tratamiento de mis datos personales para la atención de este trámite.</span></label>
+        <div class="form-actions"><button type="button" class="button secondary" data-view="inicio">Cancelar</button><button type="submit" class="button primary">Enviar trámite <span>→</span></button></div>
+      </form>
+    </section>
+
+    <section class="view form-page" id="consultar">
+      <div class="page-header centered"><span class="eyebrow">Seguimiento</span><h1>Consulta tu expediente</h1><p>Ingresa el código recibido al registrar tu trámite.</p></div>
+      <form id="consulta-form" class="search-panel">
+        <div class="query-fields">
+          <label class="field"><span>Número de expediente</span><input id="codigo-consulta" required pattern="MP-[0-9]{4}-[0-9]{5}" placeholder="Ej. MP-2026-00001"></label>
+          <label class="field"><span>Número de documento</span><input id="documento-consulta" required inputmode="numeric" minlength="8" maxlength="11" placeholder="DNI, CE o RUC"></label>
+        </div>
+        <button class="button primary full query-button" type="submit">Consultar expediente</button>
+        <small>Por seguridad, ambos datos deben coincidir con el registro.</small>
+      </form>
+      <div id="resultado-consulta" aria-live="polite"></div>
+    </section>
+
+    <section class="view admin-page" id="administracion">
+      <div id="admin-login" class="login-shell">
+        <form id="login-form" class="login-panel">
+          <span class="login-icon" aria-hidden="true">⚿</span>
+          <span class="eyebrow">Acceso restringido</span>
+          <h1>Administración</h1>
+          <p>Ingresa con las credenciales autorizadas por la institución.</p>
+          <label class="field"><span>Usuario</span><input name="username" required autocomplete="username"></label>
+          <label class="field"><span>Contraseña</span><input name="password" type="password" required autocomplete="current-password"></label>
+          <p class="form-error" id="login-error" role="alert"></p>
+          <button class="button primary full" type="submit">Iniciar sesión</button>
+        </form>
+      </div>
+      <div id="admin-content" class="hidden">
+        <div class="admin-header"><div><span class="eyebrow">Gestión interna</span><h1>Trámites recibidos</h1><p>Revisa y actualiza el estado de los expedientes.</p><p class="session-context" id="session-context"></p></div><div class="admin-actions"><button class="button secondary hidden" id="manage-system-button">Cuentas y áreas</button><button class="button secondary" id="change-password-button">Cambiar clave</button><button class="button secondary" id="logout-button">Cerrar sesión</button><button class="button primary" data-view="registrar">＋ Nuevo trámite</button></div></div>
+        <div class="stats" id="stats"></div>
+        <div class="table-panel">
+          <div class="workflow-tabs" role="tablist" aria-label="Bandejas de trámites">
+            <button class="workflow-tab active" data-tray="todos">Todos</button>
+            <button class="workflow-tab" data-tray="entrada">Bandeja de entrada</button>
+            <button class="workflow-tab" data-tray="atencion">En atención</button>
+            <button class="workflow-tab" data-tray="derivados">Derivados</button>
+            <button class="workflow-tab" data-tray="atendidos">Atendidos</button>
+          </div>
+          <div class="table-tools"><div class="search-inline"><span>⌕</span><input id="filtro" placeholder="Buscar por expediente, nombre, documento o asunto"></div></div>
+          <div class="table-scroll"><table><thead><tr><th>Expediente</th><th>Solicitante</th><th>Trámite</th><th>Ubicación actual</th><th>Estado</th><th>Actualización</th><th></th></tr></thead><tbody id="tramites-body"></tbody></table></div>
+          <div class="empty-state" id="empty-state"><span>▤</span><h3>Aún no hay trámites</h3><p>Los documentos registrados aparecerán en esta sección.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
+    <div class="modal-card"><div class="success-icon">✓</div><h2 id="success-title">Trámite registrado</h2><p>Tu documento fue recibido correctamente. Guarda este código para consultar su estado.</p><div class="tracking-code"><span>Número de expediente</span><strong id="new-code"></strong><button id="copy-code" title="Copiar código">Copiar</button></div><button class="button primary full" id="close-success">Ir a consultar mi trámite</button></div>
+  </div>
+
+  <div class="modal" id="password-modal" role="dialog" aria-modal="true" aria-labelledby="password-title">
+    <form class="modal-card password-form" id="password-form">
+      <h2 id="password-title">Cambiar contraseña</h2>
+      <p>Al guardar, se cerrarán todas las sesiones administrativas.</p>
+      <label class="field"><span>Contraseña actual</span><input name="currentPassword" type="password" required autocomplete="current-password"></label>
+      <label class="field"><span>Nueva contraseña</span><input name="newPassword" type="password" required minlength="12" maxlength="128" autocomplete="new-password"></label>
+      <label class="field"><span>Confirmar nueva contraseña</span><input name="confirmation" type="password" required minlength="12" maxlength="128" autocomplete="new-password"></label>
+      <p class="form-error" id="password-error" role="alert"></p>
+      <div class="modal-actions"><button class="button secondary" type="button" id="cancel-password">Cancelar</button><button class="button primary" type="submit">Guardar contraseña</button></div>
+    </form>
+  </div>
+
+  <div class="modal expediente-modal" id="expediente-modal" role="dialog" aria-modal="true" aria-labelledby="expediente-title">
+    <div class="modal-card expediente-modal-card">
+      <button class="modal-close" id="close-expediente" type="button" aria-label="Cerrar detalle">×</button>
+      <div id="expediente-detail"></div>
+    </div>
+  </div>
+
+  <div class="modal settings-modal" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-card settings-modal-card">
+      <button class="modal-close" id="close-settings" type="button" aria-label="Cerrar configuración">×</button>
+      <header class="settings-header"><span class="eyebrow">Administración general</span><h2 id="settings-title">Cuentas y áreas</h2><p>Gestiona los accesos institucionales sin intervenir en el flujo de expedientes.</p></header>
+      <div id="settings-content"></div>
+    </div>
+  </div>
+
+  <div class="loading-overlay" id="loading" aria-live="polite"><span></span><b>Procesando</b></div>
+  <div class="toast" id="toast" role="status"></div>
+  <footer><span>© <span id="year"></span> I. E. Chinchaysuyo</span><span>Mesa de Partes Virtual</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "mesa-partes-chinchaysuyo",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mesa-partes-chinchaysuyo-db",
+      "database_id": "dcb382bc-6599-4fe2-a23d-64992606251f",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "ARCHIVOS",
+      "id": "af9800f28209485d931a13ff9af477b7"
+    }
+  ],
+  "vars": {
+    "SESSION_HOURS": "8",
+    "MAX_FILE_MB": "10"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

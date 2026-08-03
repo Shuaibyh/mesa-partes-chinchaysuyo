@@ -1,0 +1,12 @@
+node_modules/
+data/
+uploads/
+backups/
+.wrangler/
+migration-data/
+.env
+npm-debug.log*
+server*.log
+worker*.log
+~$*.docx
+CUENTAS_ACCESO_PRIVADO.txt
